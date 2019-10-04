@@ -15,7 +15,6 @@ pub struct VecMap<T> {
     pub width: i32,
     pub height: i32,
     default: T
-
 }
 
 impl<T> VecMap<T> where T: Clone + Copy {
@@ -74,14 +73,14 @@ impl<T> VecMap<T> where T: Clone + Copy {
     // We're storing all the tiles in one big array, so we need a way to map an X,Y coordinate to
     // a tile. Each row is stored sequentially (so 0..80, 81..160, etc.). This takes an x/y and returns
     // the array index.
-    fn xy_idx(&self, x: i32, y: i32) -> usize{
+    fn pub xy_idx(&self, x: i32, y: i32) -> usize{
         let id = (y as usize * self.width as usize) + x as usize;
         id
     }
 
     // It's a great idea to have a reverse mapping for these coordinates. This is as simple as
     // index % MAP_WIDTH (mod MAP_WIDTH), and index / MAP_WIDTH
-    fn idx_xy(&self, idx: usize) -> (i32, i32) {
+    fn pub idx_xy(&self, idx: usize) -> (i32, i32) {
         (idx as i32 % self.width, idx as i32 / self.height)
     }
 }
