@@ -81,6 +81,6 @@ impl<T> VecMap<T> where T: Clone + Copy {
     // It's a great idea to have a reverse mapping for these coordinates. This is as simple as
     // index % MAP_WIDTH (mod MAP_WIDTH), and index / MAP_WIDTH
     pub fn idx_xy(&self, idx: usize) -> (i32, i32) {
-        (idx as i32 % self.height, idx as i32 / self.width)
+        (idx as i32 % self.width, idx as i32 / self.height)
     }
 }
