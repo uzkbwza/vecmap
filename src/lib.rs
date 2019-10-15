@@ -74,7 +74,7 @@ impl<T> VecMap<T> where T: Clone + Copy {
     // a tile. Each row is stored sequentially (so 0..80, 81..160, etc.). This takes an x/y and returns
     // the array index.
     pub fn xy_idx(&self, x: i32, y: i32) -> usize{
-        let id = (x as usize * self.height as usize) + y as usize;
+        let id = (x as usize * self.width as usize) + y as usize;
         id
     }
 
