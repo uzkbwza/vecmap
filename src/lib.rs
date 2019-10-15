@@ -74,7 +74,7 @@ impl<T> VecMap<T> where T: Clone + Copy {
     // a tile. Each row is stored sequentially (so 0..80, 81..160, etc.). This takes an x/y and returns
     // the array index.
     pub fn xy_idx(&self, x: i32, y: i32) -> usize{
-        (y as usize * self.width as usize) + x as usize;
+        (y as usize * self.width as usize) + x as usize
     }
 
     // It's a great idea to have a reverse mapping for these coordinates. This is as simple as
