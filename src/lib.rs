@@ -55,13 +55,14 @@ impl<T> VecMap<T> where T: Clone + Copy {
         self.set_point(x, y, self.default)
     }
 
-    pub fn reset_map(&mut self) {
+    pub fn reset_map(&mut self) -> Result<(), String> {
         for i in 0..self.items.len() {
             let (x, y) = self.idx_xy(i);
             if self.is_in_bounds(x, y) {
-                self.reset_point(x, y);
+                self.reset_point(x, y)?
             }
         }
+        Err("Could not reset map".to_string())
     }
 
     fn is_in_bounds(&self, x: i32, y: i32) -> bool {
